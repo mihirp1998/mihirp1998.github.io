@@ -1,9 +1,7 @@
-
-
 .panel{
 
   font-family: 'Source Sans Pro';
-  font-size:1.3em;
+  font-size:130%;
   position: absolute;
   z-index:10;
   top:50%;
@@ -14,7 +12,23 @@ background-color:transparent;
 
 
   z-index:100;
+}
 
 
+@media (max-width : 320px) {
+	.panel{
 
+	  font-family: 'Source Sans Pro';
+	  font-size:40%;
+	  position: absolute;
+	  z-index:10;
+	  top:15%;
+	  left:10%;
+
+	  text-align: center;
+	background-color:transparent;
+
+
+	  z-index:100;
+	}
 }
