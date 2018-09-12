@@ -13,7 +13,9 @@ background-color:transparent;
 
   z-index:100;
 }
-
+strong{
+	color: black;
+}
 
 @media (max-width : 720px) {
 	.panel{
