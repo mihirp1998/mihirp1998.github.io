@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>3DQNets</title>
+        <title>EmbLang</title>
 	    <link rel="stylesheet" type="text/css" href="styles.css" />
 	    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
     	<link href="https://fonts.googleapis.com/css?family=Roboto:light,normal" rel="stylesheet">
@@ -14,14 +14,14 @@
 
 	<body>
 		<div id="content">
-			<h1>3DQ-Nets: Learning 3D Vision without 3D Supervision using Pose Equivariant 3D Quantized Neural Scene Representations</h1>
+			<h1>Embodied Language Grounding with Implicit 3D Visual Feature Representations</h1>
 			<div style="text-align: center">
 				<span class="author"><a href="https://mihirp1998.github.io/" target="_blank">Mihir Prabhudesai*</a></span>
-				<span class="author"><a href="https://shamitlal.github.io/" target="_blank">Shamit Lal*</a></span>
-				<span class="author"><a href="https://sfish0101.bitbucket.io/" target="_blank">Hsiao-Yu Tung</a></span>
+				<span class="author"><a href="https://sfish0101.bitbucket.io/" target="_blank">Hsiao-Yu Tung*</a></span>
+				<span class="author"><a href="http://stillbreeze.github.io/about/" target="_blank">Syed Ashar Javed*</a></span>
 				<br>
+				<span class="author"><a href="https://msieb1.github.io" target="_blank">Maximilian Sieb</a></span>
 				<span class="author"><a href="https://www.cs.cmu.edu/~aharley/" target="_blank">Adam W Harley</a></span>
-				<span class="author"><a href="http://smpotdar.com/" target="_blank">Shubhankar Potdar</a></span>
 				<span class="author" style="padding-right: 0"><a href="https://www.cs.cmu.edu/~katef/" target="_blank">Katerina Fragkiadaki</a></span>
 
 			</div>
@@ -31,38 +31,38 @@
 			<div class="venue"></div>
 			<br>
 			<!-- <div class="highlight"><b>1st place on KITTI Scene Flow benchmark</b></div> -->
-
+<!-- 
 			<div style="text-align: center;">
 				<img src="images/improving-det.gif" width=1000><br>
-			</div>
+			</div> -->
 
 			<h2>Abstract</h2>
 			<p>
-				We present a  framework for learning 3D perception without supervision from 3D annotations. 
-				Our model encodes input RGB-D images into 3D scene feature maps,   detects objects in these maps, and quantizes  them into a dictionary of  scale and pose equivariant 3D prototypes, 
-				supervised  by depth and egomotion of an  agent that moves  in static world scenes and collects images labelled with (potentially inaccurate) 2D category-agnostic object boxes. 
-				Our architecture has three distinct yet interdependent functionalities: 
-				representation  learning  from intra-scene and cross-scene correspondences, 3D salient object detection, and pose-equivariant clustering of detected  objects into 
-				3D prototypes.  
-				 We optimize for  view prediction, cross-scene correspondences,  visual detection, and visual compression with a mix of end-to-end gradient descent and expectation-maximization iterations. 
-				We show how compression helps 3D object detection  improve over time by penalizing object proposals not matching to any prototypes, intra-scene correspondences implemented as 
-				view prediction  
-				help inference of cross-scene correspondences, and joint intra and inter scene correspondence guided metric learning  helps compression by yielding accurate inference of poses aligning prototypes to detected  instances.  
-				We demonstrate the usefulness of our framework in few-shot learning: the annotation of few object instances  suffices to  learn an accurate 3D object detector for it.  
+			The hypothesis of simulation semantics suggests that people think and reason about language utterances visually.
+			It formally states that processing words and sentences leads to perceptual and motor simulations of explicitly and implicitly mentioned aspects of linguistic content. This work proposes a computational model of simulation semantics
+			that associates language utterances to 3D visual abstractions of the scene they describe. The 3D visual abstractions
+			are encoded as a 3-dimensional visual feature maps. We infer such 3D visual scene feature maps from RGB images of
+			the scene via view prediction: the generated 3D scene feature map when neurally projected from a camera viewpoint
+			it should match the corresponding RGB image. The models we propose have two functionalities: i) conditioned on
+			the dependency tree of an utterance, they generate the related visual 3D feature map and reason about its plausibility (without access to any visual input), and ii) conditioned on the dependency tree of a referential expression and a
+			related image they localize object referents in the 3D feature map inferred from the image. We empirically show our
+			model outperforms by a large margin models of language and vision that associate language with 2D CNN activations or 2D images in a variety of tasks, such as, classifying plausibility of utterances by spatially reasoning over possible and impossible object configurations, 3D object referential detection, inferring desired scene transformations given
+			language instructions, and providing rewards for trajectory optimization of corresponding policies. We attribute the improved performance of our model to its improved generalization across camera viewpoints and reasoning of possible object arrangements, benefits of its 3D visual grounding space, in place of view-dependent images and CNN image
+			features.
 			</p>
 			<br>
 
-			<h2>Overview of 3DQ-Nets</h2>
+			<h2>Overview of our model</h2>
 			<!-- <div style="text-align: center;">
 				<img src="poster.png" width="1000"></img>
 			</div> -->
 	
 			<div style="text-align: center;">
-				<img src="images/3dqnet_arch.png" width="1000"></img>
+				<img src="images/Fig1Sept2019.pdf" width="1000"></img>
 			</div>
 
 
-			<div style="text-align: center;">
+<!-- 			<div style="text-align: center;">
 				<h3 align="left">  Joing Prototype - Perception Learning </h3>
 				<table>
 					<tr>
@@ -76,9 +76,9 @@
 						<td><img src="images/grrn.gif" width="500"/></td>
 					</tr>
 				</table>
-			</div>
+			</div> -->
 
-			<h2>Quantitative Results</h2>
+<!-- 			<h2>Quantitative Results</h2>
 
 			<div style="text-align: center;">
 				
@@ -97,13 +97,13 @@
 						<td><img src="images/table5.png" width="500"/></td>
 					</tr>
 				</table>
-			</div>
+			</div> -->
 
-			<h2>Qualitative Results</h2>
+			<!-- <h2>Qualitative Results</h2> -->
 
 			
 
-			<div style="text-align: center;">
+<!-- 			<div style="text-align: center;">
 				<h3 align="left"> <strong> Scene Parsing </strong> </h3>
 				<table align="center">
 					<tr>
@@ -143,13 +143,13 @@
 					</tr>
 
 				</table>
-			</div>
+			</div> -->
 
-
+<!-- 
 			<br>
 
-			<h2>Citation</h2>
-			<div class="paper">
+			<h2>Citation</h2> -->
+<!-- 			<div class="paper">
 				<div class="paper_pic"><img src="images/paper_pic_2.png" width=190></div>
 				<div class="paper_content">
 					<h3><b>3DQ-Nets: Learning 3D Vision without 3D Supervision using Pose Equivariant 3D Quantized Neural Scene Representations</b></h3>
@@ -162,7 +162,7 @@
 						
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</body>
 </html>		
