@@ -1,0 +1,197 @@
+<html>
+    <head>
+        <title>EmbLang</title>
+	    <link rel="stylesheet" type="text/css" href="styles.css" />
+	    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    	<link href="https://fonts.googleapis.com/css?family=Roboto:light,normal" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Oregano" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    	<script src="https://kit.fontawesome.com/2ff36a40d1.js"></script>
+		<script type="text/javascript" src="../js/modernizr-1.5.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    </head>
+
+	<body>
+		<div id="content">
+			<h1>Embodied Language Grounding with Implicit 3D Visual Feature Representations</h1>
+			<div style="text-align: center">
+				<span class="author"><a href="https://mihirp1998.github.io/" target="_blank">Mihir Prabhudesai*</a></span>
+				<span class="author"><a href="https://sfish0101.bitbucket.io/" target="_blank">Hsiao-Yu Tung*</a></span>
+				<span class="author"><a href="http://stillbreeze.github.io/about/" target="_blank">Syed Ashar Javed*</a></span>
+				<br>
+				<span class="author"><a href="https://msieb1.github.io" target="_blank">Maximilian Sieb</a></span>
+				<span class="author"><a href="https://www.cs.cmu.edu/~aharley/" target="_blank">Adam W Harley</a></span>
+				<span class="author" style="padding-right: 0"><a href="https://www.cs.cmu.edu/~katef/" target="_blank">Katerina Fragkiadaki</a></span>
+
+			</div>
+			<div class="affil">
+				Carnegie Mellon University
+			</div>
+			<div class="venue"></div>
+			<br>
+			<!-- <div class="highlight"><b>1st place on KITTI Scene Flow benchmark</b></div> -->
+
+			<div style="text-align: center;">
+				<img src="images/genvideo.gif" width=800><br>
+			</div>
+
+			<h2>Abstract</h2>
+			<p>
+			The hypothesis of simulation semantics suggests that people think and reason about language utterances visually.
+			It formally states that processing words and sentences leads to perceptual and motor simulations of explicitly and implicitly mentioned aspects of linguistic content. This work proposes a computational model of simulation semantics
+			that associates language utterances to 3D visual abstractions of the scene they describe. The 3D visual abstractions
+			are encoded as a 3-dimensional visual feature maps. We infer such 3D visual scene feature maps from RGB images of
+			the scene via view prediction: the generated 3D scene feature map when neurally projected from a camera viewpoint
+			it should match the corresponding RGB image. The models we propose have two functionalities: i) conditioned on
+			the dependency tree of an utterance, they generate the related visual 3D feature map and reason about its plausibility (without access to any visual input), and ii) conditioned on the dependency tree of a referential expression and a
+			related image they localize object referents in the 3D feature map inferred from the image. We empirically show our
+			model outperforms by a large margin models of language and vision that associate language with 2D CNN activations or 2D images in a variety of tasks, such as, classifying plausibility of utterances by spatially reasoning over possible and impossible object configurations, 3D object referential detection, inferring desired scene transformations given
+			language instructions, and providing rewards for trajectory optimization of corresponding policies. We attribute the improved performance of our model to its improved generalization across camera viewpoints and reasoning of possible object arrangements, benefits of its 3D visual grounding space, in place of view-dependent images and CNN image
+			features.
+			</p>
+			<br>
+
+			<h2 >GRNNs </h2>
+			<div style="text-align: center;">
+				<img src="images/grrn.gif" width="700"/>
+			</div>
+
+			<h2>Overview of our model</h2>
+			<!-- <div style="text-align: center;">
+				<img src="poster.png" width="1000"></img>
+			</div> -->
+	
+			<div style="text-align: center;">
+				<img src="images/Fig1Sept2019.png" width="1000"></img>
+			</div>
+
+
+			<h2>Experiment Results</h2>
+			<!-- <div style="text-align: center;">
+				<img src="poster.png" width="1000"></img>
+			</div> -->
+			<h3><b>Language conditioned scene generation:</b></h3>
+			<div style="text-align: center;">
+				<img src="images/sample_web2_lowres.png" width="700" style="margin-top:3%"></img>
+			</div>
+			<h3><b>Detecting referential spatial expressions:</b></h3>
+			<div style="text-align: center;">
+				<img src="images/ref_exp_web_lowres.png" width="700" style="margin-bottom:3%;margin-top:3%"></img>
+			</div>	
+			<h3><b>Manipulation instruction following:</b></h3>
+			<div style="text-align: center;">
+				<video width="500" height="500" controls autoplay>
+  					<source src="images/placement.mov" type="video/mp4">
+  				</video>				
+			</div>			
+<!-- 			<div style="text-align: center;">
+				<img src="images/angle_web.png" width="700"></img>
+			</div>
+			<div style="text-align: center;">
+				<img src="images/dual_web.png" width="700"></img>
+			</div>			 -->
+<!-- 			<div style="text-align: center;">
+				<h2 align="left"> Experiments </h2>
+				<table>
+					<tr>
+						<td><img src="images/grrn.gif" width="500"/></td>
+					</tr>
+				</table>
+			</div> -->
+
+<!-- 			<h2>Quantitative Results</h2>
+
+			<div style="text-align: center;">
+				
+				<br><br>
+				<table align="center">
+					<tr>
+						<td><img src="images/table1.png" width="500"/></td>
+						<td><img src="images/table2.png" width="500"/></td>
+					</tr>
+					<tr>
+						<td><img src="images/fig3.png" width="500"/></td>
+						<td><img src="images/table3.png" width="500"/></td>
+					</tr>
+					<tr>
+						<td><img src="images/table4.png" width="500"/></td>
+						<td><img src="images/table5.png" width="500"/></td>
+					</tr>
+				</table>
+			</div> -->
+
+			<!-- <h2>Qualitative Results</h2> -->
+
+			
+
+<!-- 			<div style="text-align: center;">
+				<h3 align="left"> <strong> Scene Parsing </strong> </h3>
+				<table align="center">
+					<tr>
+						<td><img src="images/scene_parse1.png" width="450"/></td>
+						<td><img src="images/scene_parse2.png" width="450"/></td>
+					</tr>
+
+				</table>
+				<br>
+				<table align="center">
+					<tr>
+						<td><img src="images/scene_parse3.png" width="450"/></td>
+						<td>
+							<video width="500" height="500" controls autoplay>
+  								<source src="images/real_world.mp4" type="video/mp4">
+  							</video>
+						</td>
+					</tr>
+				</table>
+
+				<br><br>
+				<h3 align="left"> <strong> Retrievals </strong> </h3>
+				<table align="center">
+					<tr>
+						<td><img src="images/retrieval_1.png" width="550"/></td>
+						<td><img src="images/retrieval_2.png" width="490"/></td>
+					</tr>
+
+				</table>
+
+				<br><br>
+				<h3 align="left"> <strong> Prototype Reconstructions and Self Improving Detections </strong> </h3>
+				<table align="center">
+					<tr>
+						<td><img src="images/proto_recons_1.png" width="450"/></td>
+						<td><img src="images/det1.png" width="450"/></td>
+					</tr>
+
+				</table>
+			</div> -->
+
+
+			<br>
+
+			<h2>Citation</h2>
+			<div class="paper">
+				<div class="paper_pic"><img src="images/second_page.png" width=190></div>
+				<div class="paper_content">
+					<h3><b>Embodied Language Grounding with Implicit 3D Visual Feature Representations</b></h3>
+					<h4><span style="font-weight:normal;">Mihir_Prabhudesai, Hsiao-Yu Tung, Syed Ashar Javed, Maximilian Sieb, Adam W Harley, Katerina Fragkiadaki</span></h3>
+					<h4>Supplementary <a href="images/supplementary.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>  | 
+					arXiv preprint <a href="https://arxiv.org/pdf/1910.01210.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>  | 
+					Code <a href="" target="_blank"><i class="fab fa-github fa-lg"></i></a></h4>
+					<h3>BibTex</h3>
+					<div class="bibtex">
+						<pre>@article{emb_lang,
+author = {Mihir Prabhudesai and Hsiao-Yu Tung and Syed Ashar Javed and 
+Maximilian Sieb and Adam W Harley and Katerina Fragkiadaki}, 
+title     = {Embodied Language Grounding with Implicit 3D Visual Feature Representations}}, 
+journal = {arXiv},
+year = {2019}
+}</pre>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>		
