@@ -1,0 +1,168 @@
+<html>
+    <head>
+        <title>3DQNets</title>
+	    <link rel="stylesheet" type="text/css" href="styles.css" />
+	    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    	<link href="https://fonts.googleapis.com/css?family=Roboto:light,normal" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Oregano" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    	<script src="https://kit.fontawesome.com/2ff36a40d1.js"></script>
+		<script type="text/javascript" src="../js/modernizr-1.5.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    </head>
+
+	<body>
+		<div id="content">
+			<h1>3DQ-Nets: Learning 3D Vision without 3D Supervision using Pose Equivariant 3D Quantized Neural Scene Representations</h1>
+			<div style="text-align: center">
+				<span class="author"><a href="https://mihirp1998.github.io/" target="_blank">Mihir Prabhudesai*</a></span>
+				<span class="author"><a href="https://shamitlal.github.io/" target="_blank">Shamit Lal*</a></span>
+				<span class="author"><a href="https://sfish0101.bitbucket.io/" target="_blank">Hsiao-Yu Tung</a></span>
+				<br>
+				<span class="author"><a href="https://www.cs.cmu.edu/~aharley/" target="_blank">Adam W Harley</a></span>
+				<span class="author"><a href="http://smpotdar.com/" target="_blank">Shubhankar Potdar</a></span>
+				<span class="author" style="padding-right: 0"><a href="https://www.cs.cmu.edu/~katef/" target="_blank">Katerina Fragkiadaki</a></span>
+
+			</div>
+			<div class="affil">
+				Carnegie Mellon University
+			</div>
+			<div class="venue"></div>
+			<br>
+			<!-- <div class="highlight"><b>1st place on KITTI Scene Flow benchmark</b></div> -->
+
+			<div style="text-align: center;">
+				<img src="images/improving-det.gif" width=1000><br>
+			</div>
+
+			<h2>Abstract</h2>
+			<p>
+				We present a  framework for learning 3D perception without supervision from 3D annotations. 
+				Our model encodes input RGB-D images into 3D scene feature maps,   detects objects in these maps, and quantizes  them into a dictionary of  scale and pose equivariant 3D prototypes, 
+				supervised  by depth and egomotion of an  agent that moves  in static world scenes and collects images labelled with (potentially inaccurate) 2D category-agnostic object boxes. 
+				Our architecture has three distinct yet interdependent functionalities: 
+				representation  learning  from intra-scene and cross-scene correspondences, 3D salient object detection, and pose-equivariant clustering of detected  objects into 
+				3D prototypes.  
+				 We optimize for  view prediction, cross-scene correspondences,  visual detection, and visual compression with a mix of end-to-end gradient descent and expectation-maximization iterations. 
+				We show how compression helps 3D object detection  improve over time by penalizing object proposals not matching to any prototypes, intra-scene correspondences implemented as 
+				view prediction  
+				help inference of cross-scene correspondences, and joint intra and inter scene correspondence guided metric learning  helps compression by yielding accurate inference of poses aligning prototypes to detected  instances.  
+				We demonstrate the usefulness of our framework in few-shot learning: the annotation of few object instances  suffices to  learn an accurate 3D object detector for it.  
+			</p>
+			<br>
+
+			<h2>Overview of 3DQ-Nets</h2>
+			<!-- <div style="text-align: center;">
+				<img src="poster.png" width="1000"></img>
+			</div> -->
+	
+			<div style="text-align: center;">
+				<img src="images/3dqnet_arch.png" width="1000"></img>
+			</div>
+
+
+			<div style="text-align: center;">
+				<h3 align="left">  Joing Prototype - Perception Learning </h3>
+				<table>
+					<tr>
+						<td><img src="images/perception_learning.png" width="500"/></td>
+						<td><img src="images/prototype_learning.png" width="500"/></td>
+					</tr>
+				</table>
+				<h3 align="left"> GIGNs </h3>
+				<table>
+					<tr>
+						<td><img src="images/grrn.gif" width="500"/></td>
+					</tr>
+				</table>
+			</div>
+
+			<h2>Quantitative Results</h2>
+
+			<div style="text-align: center;">
+				
+				<br><br>
+				<table align="center">
+					<tr>
+						<td><img src="images/table1.png" width="500"/></td>
+						<td><img src="images/table2.png" width="500"/></td>
+					</tr>
+					<tr>
+						<td><img src="images/fig3.png" width="500"/></td>
+						<td><img src="images/table3.png" width="500"/></td>
+					</tr>
+					<tr>
+						<td><img src="images/table4.png" width="500"/></td>
+						<td><img src="images/table5.png" width="500"/></td>
+					</tr>
+				</table>
+			</div>
+
+			<h2>Qualitative Results</h2>
+
+			
+
+			<div style="text-align: center;">
+				<h3 align="left"> <strong> Scene Parsing </strong> </h3>
+				<table align="center">
+					<tr>
+						<td><img src="images/scene_parse1.png" width="450"/></td>
+						<td><img src="images/scene_parse2.png" width="450"/></td>
+					</tr>
+
+				</table>
+				<br>
+				<table align="center">
+					<tr>
+						<td><img src="images/scene_parse3.png" width="450"/></td>
+						<td>
+							<video width="500" height="500" controls autoplay>
+  								<source src="images/real_world.mp4" type="video/mp4">
+  							</video>
+						</td>
+					</tr>
+				</table>
+
+				<br><br>
+				<h3 align="left"> <strong> Retrievals </strong> </h3>
+				<table align="center">
+					<tr>
+						<td><img src="images/retrieval_1.png" width="550"/></td>
+						<td><img src="images/retrieval_2.png" width="490"/></td>
+					</tr>
+
+				</table>
+
+				<br><br>
+				<h3 align="left"> <strong> Prototype Reconstructions and Self Improving Detections </strong> </h3>
+				<table align="center">
+					<tr>
+						<td><img src="images/proto_recons_1.png" width="450"/></td>
+						<td><img src="images/det1.png" width="450"/></td>
+					</tr>
+
+				</table>
+			</div>
+
+
+			<br>
+
+			<h2>Citation</h2>
+			<div class="paper">
+				<div class="paper_pic"><img src="images/paper_pic_2.png" width=190></div>
+				<div class="paper_content">
+					<h3><b>3DQ-Nets: Learning 3D Vision without 3D Supervision using Pose Equivariant 3D Quantized Neural Scene Representations</b></h3>
+					<h4><span style="font-weight:normal;">Mihir_Prabhudesai , Shamit Lal, Hsiao-Yu Tung, Adam W Harley, Shubhankar Potdar, Katerina Fragkiadaki</span></h3>
+					<h4>Supplementary <a href="supplementary.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>  | 
+					arXiv preprint <a href="" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>  | 
+					Code <a href="" target="_blank"><i class="fab fa-github fa-lg"></i></a></h4>
+					<h3>BibTex</h3>
+					<div class="bibtex">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>		
