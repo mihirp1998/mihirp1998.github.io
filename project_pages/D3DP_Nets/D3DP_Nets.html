@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <title>D3DP-Nets</title>
+	    <link rel="stylesheet" type="text/css" href="styles.css" />
+	    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    	<link href="https://fonts.googleapis.com/css?family=Roboto:light,normal" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Oregano" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    	<script src="https://kit.fontawesome.com/2ff36a40d1.js"></script>
+		<script type="text/javascript" src="../js/modernizr-1.5.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    </head>
+
+	<body>
+		<div id="content">
+			<!-- <h1>DISENTANGLING 3D PROTOTYPICAL NETWORKS FOR FEW-SHOT CONCEPT LEARNING</h1> -->
+			<h1>Disentangling 3D Prototypical Networks For Few-Shot Concept Learning</h1>
+			<div style="text-align: center">
+				<span class="author"><a href="https://mihirp1998.github.io/" target="_blank">Mihir Prabhudesai*</a></span>
+				<span class="author"><a href="https://shamitlal.github.io/" target="_blank">Shamit Lal*</a></span>
+				<span class="author"><a href="https://www.darshanpatil.com/about/" target="_blank">Darshan Patil*</a></span>
+				<br>
+				<span class="author"><a href="https://sfish0101.bitbucket.io/" target="_blank">Hsiao-Yu Tung</a></span>
+				<span class="author"><a href="https://www.cs.cmu.edu/~aharley/" target="_blank">Adam W Harley</a></span>
+				<span class="author" style="padding-right: 0"><a href="https://www.cs.cmu.edu/~katef/" target="_blank">Katerina Fragkiadaki</a></span>
+
+			</div>
+			<div class="affil">
+				Carnegie Mellon University
+			</div>
+			<div class="venue"></div>
+			<br>
+			<!-- <div class="highlight"><b>1st place on KITTI Scene Flow benchmark</b></div> -->
+
+			<!-- <div style="text-align: center;">
+				<img src="images/improving-det.gif" width=1000><br>
+			</div> -->
+
+			<h2>Abstract</h2>
+			<p>
+				We present neural architectures that disentangle RGB-D images into objects’ shapes
+				and styles and a map of the background scene, and explore their applications for
+				few-shot 3D object detection and few-shot concept classification. Our networks
+				incorporate architectural biases that reflect the image formation process, 
+				3D geometry of the world scene, and shape-style interplay. They are trained end-to-end
+				self-supervised by predicting views in static scenes, alongside a small number of
+				3D object boxes. Objects and scenes are represented in terms of 3D feature grids in
+				the bottleneck of the network. We show that the proposed 3D neural representations
+				are compositional: they can generate novel 3D scene feature maps by mixing object
+				shapes and styles, resizing and adding the resulting object 3D feature maps over
+				background scene feature maps. We show that classifiers for object categories,
+				color, materials, and spatial relationships trained over the disentangled 3D feature
+				sub-spaces generalize better with dramatically fewer examples than the current
+				state-of-the-art, and enable a visual question answering system that uses them as
+				its modules to generalize one-shot to novel objects in the scene
+			</p>
+			<br>
+
+			<h2>Overview of D3DP-Nets</h2>
+			<!-- <div style="text-align: center;">
+				<img src="poster.png" width="1000"></img>
+			</div> -->
+	
+			<div style="text-align: center;">
+				<img src="images/fig1_dis.png" width="800"></img>
+			</div>
+			<br> 
+			Given a single image-language example regarding new concepts (e.g., blue and carrot), our
+			model can parse the object into its shape and style codes and ground them with Blue and Carrot labels,
+			respectively. On the right, we show tasks the proposed model can achieve using this grounding.(a) It
+			can detect the object under novel style, novel pose, and in novel scene arrangements and viewpoints.
+			(b) It can detect a new concept like blue broccoli. (c) It can imagine scenes with the new concepts.
+			(d) It can answer complex questions about the scene.
+			<br> <br>
+			<div style="text-align: center;">
+				<img src="images/fig2_dis.png" width="1000"></img>
+			</div>
+			<br>
+			<b>Architecture for disentangling 3D prototypical networks (D3DP-Nets).</b> (a) Given
+			multi-view posed RGB-D images of scenes as input during training, our model learns to map a single
+			RGB-D image to a completed scene 3D feature map at test time, by training for view prediction.
+			From the completed 3D scene feature map, our model learns to detect objects from the scene. (b)
+			In each 3D object box, we apply a shape-style disentanglement autoencoder that disentangles the
+			object-centric feature map to a 3D (feature) shape code and a 1D style code. (c) Our model can
+			compose the disentangled representations to generate a novel scene 3D feature map. We urge the
+			readers to refer the video on the project page for an intuitive understanding of the architecture.
+
+			<h2>Video Explanation</h2>
+			<div style="text-align: center;">
+			<!-- Add youtube video link here -->
+				<iframe width="1000" height="650" src="https://www.youtube.com/embed/HKFqR-Pqy4I?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<br>
+
+			<h2>Citation</h2>
+			<div class="paper">
+				<div class="paper_pic"><img src="images/paper_pic.png" width=190></div>
+				<div class="paper_content">
+					<h3><b>Disentangling 3D Prototypical Networks For Few-Shot Concept Learning</b></h3>
+					<h4><span style="font-weight:normal;">Mihir Prabhudesai*, Shamit Lal*, Darshan Patil*, Hsiao-Yu Tung, Adam W Harley, Katerina Fragkiadaki</span></h3>
+					<!-- <h4>Supplementary <a href="supplementary.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>  |  -->
+					arXiv preprint <a href="" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>  | 
+					Code <a href="" target="_blank"><i class="fab fa-github fa-lg"></i></a></h4>
+					<h3>BibTex</h3>
+					<div class="bibtex">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>		

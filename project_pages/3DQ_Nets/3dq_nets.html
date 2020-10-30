@@ -1,0 +1,149 @@
+<html>
+    <head>
+        <title>3DQNets</title>
+	    <link rel="stylesheet" type="text/css" href="styles.css" />
+	    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    	<link href="https://fonts.googleapis.com/css?family=Roboto:light,normal" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Oregano" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    	<script src="https://kit.fontawesome.com/2ff36a40d1.js"></script>
+		<script type="text/javascript" src="../js/modernizr-1.5.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    </head>
+
+	<body>
+		<div id="content">
+			<h1>3D Object Recognition By Corresponding and Quantizing Neural 3D Scene Representations</h1>
+			<div style="text-align: center">
+				<span class="author"><a href="https://mihirp1998.github.io/" target="_blank">Mihir Prabhudesai*</a></span>
+				<span class="author"><a href="https://shamitlal.github.io/" target="_blank">Shamit Lal*</a></span>
+				<span class="author"><a href="https://sfish0101.bitbucket.io/" target="_blank">Hsiao-Yu Tung</a></span>
+				<br>
+				<span class="author"><a href="https://www.cs.cmu.edu/~aharley/" target="_blank">Adam W Harley</a></span>
+				<span class="author"><a href="http://smpotdar.com/" target="_blank">Shubhankar Potdar</a></span>
+				<span class="author" style="padding-right: 0"><a href="https://www.cs.cmu.edu/~katef/" target="_blank">Katerina Fragkiadaki</a></span>
+
+			</div>
+			<div class="affil">
+				Carnegie Mellon University
+			</div>
+			<div class="venue"></div>
+			<br>
+			<!-- <div class="highlight"><b>1st place on KITTI Scene Flow benchmark</b></div> -->
+
+			<div style="text-align: center;">
+				<img src="images/improving-det.gif" width=600><br>
+			</div>
+
+			<h2>Abstract</h2>
+			<p>
+				We propose a system that learns to detect objects and infer their 3D poses in RGB-D images. 
+				Many existing systems can identify objects and infer 3D poses, but they heavily rely on human 
+				labels and 3D annotations. The challenge here is to achieve this without relying on strong 
+				supervision signals. To address this challenge, we propose a model that maps RGB-D images to a 
+				set of 3D visual feature maps in a differentiable fully-convolutional manner, supervised by 
+				predicting views. The 3D feature maps correspond to a featurization of the 3D world scene 
+				depicted in the images. The object 3D feature representations are invariant to camera viewpoint 
+				changes or zooms, which means feature matching can identify similar objects under different 
+				camera viewpoints. We can compare the 3D feature maps of two objects by searching alignment 
+				across scales and 3D rotations, and, as a result of the operation, we can estimate pose and 
+				scale changes without the need for 3D pose annotations. We cluster object feature maps into 
+				a set of 3D prototypes that represent familiar objects in canonical scales and orientations. 
+				We then parse images by inferring the prototype identity and 3D pose for each detected object. 
+				We compare our method to numerous baselines that do not learn 3D feature visual representations 
+				or do not attempt to correspond features across scenes, and outperform them by a large margin 
+				in the tasks of object retrieval and object pose estimation. Thanks to the 3D nature of the 
+				object-centric feature maps, the visual similarity cues are invariant to 3D pose changes or small 
+				scale changes, which gives our method an advantage over 2D and 1D methods. 
+			</p>
+			<br>
+
+			<h2>Overview of 3DQ-Nets</h2>
+			<!-- <div style="text-align: center;">
+				<img src="poster.png" width="1000"></img>
+			</div> -->
+	
+			<div style="text-align: center;">
+				<img src="images/fig1_mihir8.png" width="500"></img>
+			</div>
+			<br> 
+			<b>Top: Model overview.</b> Our model takes as input posed RGB-D images of scenes, and outputs 3D prototypes of the objects. 
+			<b>Bottom: Evaluation tasks.</b> (a) Scene parsing: Given a new scene, we match each detected object against the prototypes using a rotation-aware check to infer its identity and pose.
+			(b) Image generation: We visualize prototypes with a pre-trained 3D-to-2D image renderer. (c) Few shot object labelling: Assigning a label to a prototype automatically transfers this label to its assigned instances.
+			<br> <br>
+			<div style="text-align: center;">
+				<img src="images/fig2_mihir6.png" width="1000"></img>
+			</div>
+			<br>
+			<b>Architecture"</b>Given multi-view posed RGB-D images of scenes as input during training, our model learns to map a single RGB-D image to a completed scene 3D feature map at test time, by training for view prediction  (b). The model additionally uses cross-scene and cross-object 3D correspondence mining and metric learning, to make the features more discriminative (c).  Finally, using these learned features, our model quantizes object instances into a set of pose-canonical 3D prototypes using rotation-aware matching (d). These learned prototypes help improve our object detector by providing confident positive 3D object box labels (e).
+
+			
+			<h2>Scene Parsing Results</h2>
+
+			
+
+			<div style="text-align: center;">
+				<iframe width="1000" height="800" src="https://www.youtube.com/embed/QGBVEopzRbM?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>				
+				<!-- <h3 align="left"> <strong> Scene Parsing </strong> </h3> -->
+<!-- 				<table align="center">
+					<tr>
+						<td><img src="images/scene_parse1.png" width="450"/></td>
+						<td><img src="images/scene_parse2.png" width="450"/></td>
+					</tr>
+
+				</table>
+				<br>
+				<table align="center">
+					<tr>
+						<td><img src="images/scene_parse3.png" width="450"/></td>
+						<td>
+							<video width="500" height="500" controls autoplay>
+  								<source src="images/realworld.mov" type="video/mp4">
+  							</video>
+						</td>
+					</tr>
+				</table> -->
+
+				<!-- <br><br>
+				<h3 align="left"> <strong> Retrievals </strong> </h3>
+				<table align="center">
+					<tr>
+						<td><img src="images/retrieval_1.png" width="550"/></td>
+						<td><img src="images/retrieval_2.png" width="490"/></td>
+					</tr>
+
+				</table> -->
+
+				<!-- <br><br>
+				<h3 align="left"> <strong> Prototype Reconstructions and Self Improving Detections </strong> </h3>
+				<table align="center">
+					<tr>
+						<td><img src="images/proto_recons_1.png" width="450"/></td>
+						<td><img src="images/det1.png" width="450"/></td>
+					</tr>
+
+				</table> -->
+			</div>
+
+
+			<br>
+
+			<h2>Citation</h2>
+			<div class="paper">
+				<div class="paper_pic"><img src="images/paper_pic.png" width=190></div>
+				<div class="paper_content">
+					<h3><b>3D Object Recognition By Corresponding and Quantizing Neural 3D Scene Representations</b></h3>
+					<h4><span style="font-weight:normal;">Mihir Prabhudesai*, Shamit Lal*, Hsiao-Yu Tung, Adam W Harley, Shubhankar Potdar, Katerina Fragkiadaki</span></h3>
+					<!-- <h4>Supplementary <a href="supplementary.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>  |  -->
+					arXiv preprint <a href="" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>  | 
+					Code <a href="" target="_blank"><i class="fab fa-github fa-lg"></i></a></h4>
+					<h3>BibTex</h3>
+					<div class="bibtex">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>		
