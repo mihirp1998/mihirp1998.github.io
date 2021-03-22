@@ -12,18 +12,14 @@ html,body{
     top:50%;
     transform: translateY(-50%);
 }
-.bigText{
+/*.bigText{
     font-size:5.6em;
-    /*position: absolute;*/
-/*    width: 100px;
-    height: 50px;*/
     
     top: 50%;
     left: 50%;
-/*    margin-left: -50px;  margin is -0.5 * dimension 
-    margin-top: -25px;     */
-}
 
+}
+*/
 .mediumText{
     font-size:2.8em; 
 }
