@@ -53,7 +53,7 @@
 				<img src="images/architecture.png" width="800"></img>
 			</div>
 			<br> 
-			<b>Continuous Convolutional Constrative  3D Networks</b> are trained to lift 2.5D images to 3D feature function grids of the scene by optimizing  for view-contrastive prediction. 
+			<b>Continuous Constrative 3D Networks</b> are trained to lift 2.5D images to 3D feature function grids of the scene by optimizing  for view-contrastive prediction. 
 			 In the top down path, the model encodes RGB-D  images into a 3D feature map and uses explicit  3D feature transformations (translation and 3D rotation) to account for changes of viewpoint between the input and target views. Each feature grid cell location parametrizes a  function of the local 3D scene geometric and semantic content. Given  continuous 3D world offset coordinates (dX,dY,dZ) from the cell center (i,j,k) and its embedded code v, a fully connected network maps the offset code  and the feature vector of the grid cell i,j,k to the feature vector of the 3D point at location i+dX,j+dY,k+dZ.
 			 In the bottom-up path, we encode the RGB-D of the target viewpoint into a 3D feature cloud. Metric learning losses in 3D tie the two point cloud representations together.
 			<br> <br>
@@ -75,8 +75,8 @@
 			<div class="paper">
 				<div class="paper_pic"><img src="images/paper_pic.png" width=190></div>
 				<div class="paper_content">
-					<h3><b>Continuous Convolutional Contrastive 3D Scene Representations for ViewPredictive Self-supervised Visual Feature Learning</b></h3>
-					<h4><span style="font-weight:normal;">Mihir Prabhudesai*, Shamit Lal*, Ishita Mediratta, Adam W Harley, Katerina Fragkiadaki</span></h3>
+					<h3><b>Continuous Contrastive 3D Scene Representations</b></h3>
+					<h4><span style="font-weight:normal;">Shamit Lal*, Mihir Prabhudesai*, Ishita Mediratta, Adam W Harley, Katerina Fragkiadaki</span></h3>
 					<!-- <h4>Supplementary <a href="supplementary.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>  |  -->
 					pdf preprint <a href="https://mihirp1998.github.io/project_pages/3cnets/implicitVoxel.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>  
 					<!-- Code <a href="" target="_blank"><i class="fab fa-github fa-lg"></i></a></h4> -->
@@ -84,9 +84,8 @@
 					<div class="bibtex">
 						<pre>
 @manual{implicit,
-     title  = "Continuous Convolutional Contrastive 3D Scene Representations for ViewPredictive Self-supervised 
-     Visual Feature Learning",
-     author = "Prabhudesai*, Mihir and Lal*, Shamit and Mediratta, Ishita and Harley, Adam W and Fragkiadaki, Katerina",
+     title  = "Continuous Contrastive 3D Scene Representations",
+     author = "Lal*, Shamit and Prabhudesai*, Mihir and Mediratta, Ishita and Harley, Adam W and Fragkiadaki, Katerina",
      note    = "\url{https://mihirp1998.github.io/project_pages/3cnets/implicitVoxel.pdf}",
      year   = "2020"
 }
