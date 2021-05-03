@@ -42,7 +42,7 @@
 			</p>
 			<br>
 
-			<h2>Overview of the model</h2>
+			<h2>Overview of CocoNets</h2>
 			<!-- <div style="text-align: center;">
 				<img src="poster.png" width="1000"></img>
 			</div> -->
@@ -51,7 +51,7 @@
 				<img src="images/fig1_new.png" width="800"></img>
 			</div>
 			<br> 
-			<b>Continuous Convolutional Contrastive 3D Networks (CoCoNets) are trained to lift 2.5D images to 3D feature function grids of the scene by optimizing for view-contrastive prediction. (a) In the top-down path, the model encodes RGB-D images into a 3D feature map M ∈ R w×h×d×c , and uses explicit 3D feature transformations (translation and 3D rotation) to account for changes of viewpoint between the input and target views. (b) In the bottom-up path, we encode the RGB-D of the target viewpoint into a 3D feature cloud. (c) Given continuous 3D world coordinates (X, Y, Z) and its embedded code v(X,Y,Z) inferred via trilinear interpolation, a fully connected network maps the coordinates and the embedded code, to the feature vector of the 3D point at location (X, Y, Z). (d) Metric learning losses in 3D tie the two point cloud representations together.
+			<b>Continuous Convolutional Contrastive 3D Networks (CoCoNets)</b> are trained to lift 2.5D images to 3D feature function grids of the scene by optimizing for view-contrastive prediction. (a) In the top-down path, the model encodes RGB-D images into a 3D feature map M ∈ R w×h×d×c , and uses explicit 3D feature transformations (translation and 3D rotation) to account for changes of viewpoint between the input and target views. (b) In the bottom-up path, we encode the RGB-D of the target viewpoint into a 3D feature cloud. (c) Given continuous 3D world coordinates (X, Y, Z) and its embedded code v(X,Y,Z) inferred via trilinear interpolation, a fully connected network maps the coordinates and the embedded code, to the feature vector of the 3D point at location (X, Y, Z). (d) Metric learning losses in 3D tie the two point cloud representations together.
 			<br> <br>
 			<div style="text-align: center;">
 				<img src="images/tracking.png" width="1000"></img>
