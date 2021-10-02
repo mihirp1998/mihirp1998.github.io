@@ -2,6 +2,22 @@
     height:100%;
 }
 
+.float-container {
+    /*border: 3px solid #fff;*/
+    /*padding: 20px;*/
+}
+
+.float-child {
+    width: 20%;
+    float: left;
+    /*padding: 10px;*/
+    /*border: 2px solid red;*/
+}
+
+green {
+    margin-right: 0px;
+}  
+
 html,body{
     height:100%;
     font-family: Raleway;
@@ -74,7 +90,7 @@ p.secondHeadline{
 }
 
 a{
-    color: #9E9E9E;
+    color: #696969;
     text-decoration: none;
 }
 
