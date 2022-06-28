@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <title>CoCoNets</title>
+	    <link rel="stylesheet" type="text/css" href="styles.css" />
+	    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    	<link href="https://fonts.googleapis.com/css?family=Roboto:light,normal" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Oregano" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    	<script src="https://kit.fontawesome.com/2ff36a40d1.js"></script>
+		<script type="text/javascript" src="../js/modernizr-1.5.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    </head>
+
+	<body>
+		<div id="content">
+			<!-- <h1>DISENTANGLING 3D PROTOTYPICAL NETWORKS FOR FEW-SHOT CONCEPT LEARNING</h1> -->
+			<h1>Continuous Contrastive 3D Scene Representations</h1>
+			<div style="text-align: center">
+				<span class="author"><a href="https://shamitlal.github.io/" target="_blank">Shamit Lal*</a></span>				
+				<span class="author"><a href="https://mihirp1998.github.io/" target="_blank">Mihir Prabhudesai*</a></span>
+				<br>
+				<span class="author"><a href="https://ishitamed19.github.io/" target="_blank">Ishita Mediratta</a></span>
+				<span class="author"><a href="https://www.cs.cmu.edu/~aharley/" target="_blank">Adam W Harley</a></span>
+				<span class="author" style="padding-right: 0"><a href="https://www.cs.cmu.edu/~katef/" target="_blank">Katerina Fragkiadaki</a></span>
+
+			</div>
+			<div class="affil">
+				Carnegie Mellon University
+			</div>
+			<div class="venue">CVPR 2021</div>
+			<br>
+			<!-- <div class="highlight"><b>1st place on KITTI Scene Flow benchmark</b></div> -->
+
+			<!-- <div style="text-align: center;">
+				<img src="images/improving-det.gif" width=1000><br>
+			</div> -->
+
+			<h2>Abstract</h2>
+			<p>
+				This paper explores self-supervised learning of amodal 3D feature representations from RGB and RGB-D posed images and videos, agnostic to object and scene semantic content, and evaluates the resulting scene representations in the downstream tasks of visual correspondence, object tracking, and object detection. The model infers a latent 3D representation of the scene in the form of 3D feature points, where each continuous world 3D point is mapped to its corresponding feature vector. The model is trained for contrastive view prediction by rendering 3D feature clouds in queried viewpoints and matching against the 3D feature point cloud predicted from the query view. Notably, the representation can be queried for any 3D location, even if it is not visible from the input view. Our model brings together three powerful ideas of recent exciting research work: 3D feature grids as a neural bottleneck for view prediction, implicit functions for handling resolution limitations of 3D grids, and contrastive learning for unsupervised training of feature representations. We show the resulting 3D visual feature representations effectively scale across objects and scenes, imagine information occluded or missing from the input viewpoints, track objects over time, align semantically related objects in 3D, and improve 3D object detection. We outperform many existing state-of-the-art methods for 3D feature learning and view prediction, which are either limited by 3D grid spatial resolution, do not attempt to build amodal 3D representations, or do not handle combinatorial scene variability due to their non-convolutional bottlenecks.
+			</p>
+			<br>
+
+			<h2>Overview of CocoNets</h2>
+			<!-- <div style="text-align: center;">
+				<img src="poster.png" width="1000"></img>
+			</div> -->
+	
+			<div style="text-align: center;">
+				<img src="images/fig1_new.png" width="800"></img>
+			</div>
+			<br> 
+			<b>Continuous Convolutional Contrastive 3D Networks (CoCoNets)</b> are trained to lift 2.5D images to 3D feature function grids of the scene by optimizing for view-contrastive prediction. (a) In the top-down path, the model encodes RGB-D images into a 3D feature map M ∈ R w×h×d×c , and uses explicit 3D feature transformations (translation and 3D rotation) to account for changes of viewpoint between the input and target views. (b) In the bottom-up path, we encode the RGB-D of the target viewpoint into a 3D feature cloud. (c) Given continuous 3D world coordinates (X, Y, Z) and its embedded code v(X,Y,Z) inferred via trilinear interpolation, a fully connected network maps the coordinates and the embedded code, to the feature vector of the 3D point at location (X, Y, Z). (d) Metric learning losses in 3D tie the two point cloud representations together.
+			<br> <br>
+			<div style="text-align: center;">
+				<img src="images/tracking.png" width="1000"></img>
+			</div>
+			<br>
+			Given the cropped RGB-D image of the object to track at t = 0, our model infers the 3D object feature map, and queries it using xyz_0, the point cloud of the object, to obtain object point features. Similarly, it obtains the point features of the entire scene at timestep t. Finally, it does cross correlation between these features to get xyz_N, where each ith point in xyz_N is the point from the scene whose feature matched best with the feature for ith point in xyz0$ We then apply RANSAC on xyz_0 and xyz_N to obtain the location of the car at timestep t.
+
+
+			<h2>Results</h2>
+			<div style="text-align: center;">
+			<!-- Add youtube video link here -->
+				<iframe width="1000" height="650" src="https://www.youtube.com/embed/n_own_d7Fh8?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<br>
+
+			<!-- <h2>Citation</h2> -->
+			<div class="paper">
+				<div class="paper_pic"><img src="images/paper_pic.png" width=190></div>
+				<div class="paper_content">
+					<h3><b>Continuous Contrastive 3D Scene Representations</b></h3>
+					<h4><span style="font-weight:normal;">Shamit Lal*, Mihir Prabhudesai*, Ishita Mediratta, Adam W Harley, Katerina Fragkiadaki</span></h3>
+					<!-- <h4>Supplementary <a href="supplementary.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>  |  -->
+					<h4>Arxiv preprint <a href="https://arxiv.org/abs/2104.03851" target="_blank"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>  | 
+					Code <a href="https://github.com/shamitlal/CoCoNets" target="_blank"><i class="fab fa-github fa-lg"></i></a></h4>
+					<h3>BibTex</h3>
+					<div class="bibtex">
+						<pre>
+@manual{implicit,
+     title  = "Continuous Contrastive 3D Scene Representations",
+     author = "Lal*, Shamit and Prabhudesai*, Mihir and Mediratta, Ishita and Harley, Adam W and Fragkiadaki, Katerina",
+     note    = "\url{https://mihirp1998.github.io/project_pages/3cnets/implicitVoxel.pdf}",
+     year   = "2020"
+}
+				</pre>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>		
