@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>GFS-Nets</title>
+    <title>Slot-TTA</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,42 +15,14 @@
     <meta property="og:image:width" content="1296">
     <meta property="og:image:height" content="840">
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mihirp1998.github.io/project_pages/gfsnets/" />
-    <meta property="og:title" content="Generating Fast and Slow: Scene Decomposition via Reconstruction" />
-    <meta property="og:description" content="We consider the problem of segmenting scenes into constituent entities, i.e. underlying objects and their parts. Current supervised visual detectors though impressive
-within their training distribution, often fail to segment out-of-distribution scenes
-into their constituent entities. Recent slot-centric generative models break such
-dependence on supervision, by attempting to segment scenes into entities unsupervised, by reconstructing pixels. However, they have been restricted thus far to toy
-scenes as they suffer from a reconstruction-segmentation trade-off: as the entity
-bottleneck gets wider, reconstruction improves but then the segmentation collapses.
-We propose GFS-Nets (Generating Fast and Slow Networks) that alleviate this issue
-with two ingredients: i) curriculum training in the form of primitives, often missing
-from current generative models and, ii) test-time adaptation per scene through gradient descent on the reconstruction objective, what we call slow inference, missing
-from current feed-forward detectors. We show the proposed curriculum suffices
-to break the reconstruction-segmentation trade-off, and slow inference greatly
-improves segmentation in out-of-distribution scenes. We evaluate GFS-Nets in 3D
-and 2D scene segmentation benchmarks of PartNet, CLEVR, Room Diverse++,
-and show large (∼ 50%) performance improvements against SOTA supervised
-feed-forward detectors and unsupervised object discovery methods."
+    <meta property="og:url" content="https://mihirp1998.github.io/project_pages/slottta/" />
+    <meta property="og:title" content="Test-time adaptation with slot-centric models" />
+    <meta property="og:description" content="Current supervised visual detectors, though impressive within their training distribution, often fail to segment out-of-distribution scenes into their constituent entities. Recent test-time adaptation methods use auxiliary self-supervised losses to adapt the network parameters to each test example independently and have shown promising results towards generalization outside the training distribution for the task of image classification. In our work, we find evidence that these losses can be insufficient for instance segmentation tasks, without also considering architectural inductive biases. For image segmentation, recent slot-centric generative models break such dependence on supervision by attempting to segment scenes into entities in a self-supervised manner by reconstructing pixels. Drawing upon these two lines of work, we propose Slot-TTA, a semi-supervised instance segmentation model equipped with a slot-centric inductive bias, that is adapted per scene at test time through gradient descent on reconstruction or novel view synthesis objectives. We show that test-time adaptation in Slot-TTA greatly improves instance segmentation in out-of-distribution scenes. We evaluate Slot-TTA in several 3D and 2D scene instance segmentation benchmarks and show substantial out-of-distribution performance improvements against state-of-the-art supervised feed-forward detectors and self-supervised test-time adaptation methods."
     />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Mip-NeRF 360: Unbounded Anti-Aliased Neural Radiance Fields" />
-    <meta name="twitter:description" content="We consider the problem of segmenting scenes into constituent entities, i.e. underlying objects and their parts. Current supervised visual detectors though impressive
-within their training distribution, often fail to segment out-of-distribution scenes
-into their constituent entities. Recent slot-centric generative models break such
-dependence on supervision, by attempting to segment scenes into entities unsupervised, by reconstructing pixels. However, they have been restricted thus far to toy
-scenes as they suffer from a reconstruction-segmentation trade-off: as the entity
-bottleneck gets wider, reconstruction improves but then the segmentation collapses.
-We propose GFS-Nets (Generating Fast and Slow Networks) that alleviate this issue
-with two ingredients: i) curriculum training in the form of primitives, often missing
-from current generative models and, ii) test-time adaptation per scene through gradient descent on the reconstruction objective, what we call slow inference, missing
-from current feed-forward detectors. We show the proposed curriculum suffices
-to break the reconstruction-segmentation trade-off, and slow inference greatly
-improves segmentation in out-of-distribution scenes. We evaluate GFS-Nets in 3D
-and 2D scene segmentation benchmarks of PartNet, CLEVR, Room Diverse++,
-and show large (∼ 50%) performance improvements against SOTA supervised
-feed-forward detectors and unsupervised object discovery methods."
+    <meta name="twitter:title" content="Test-time adaptation with slot-centric models" />
+    <meta name="twitter:description" content="Current supervised visual detectors, though impressive within their training distribution, often fail to segment out-of-distribution scenes into their constituent entities. Recent test-time adaptation methods use auxiliary self-supervised losses to adapt the network parameters to each test example independently and have shown promising results towards generalization outside the training distribution for the task of image classification. In our work, we find evidence that these losses can be insufficient for instance segmentation tasks, without also considering architectural inductive biases. For image segmentation, recent slot-centric generative models break such dependence on supervision by attempting to segment scenes into entities in a self-supervised manner by reconstructing pixels. Drawing upon these two lines of work, we propose Slot-TTA, a semi-supervised instance segmentation model equipped with a slot-centric inductive bias, that is adapted per scene at test time through gradient descent on reconstruction or novel view synthesis objectives. We show that test-time adaptation in Slot-TTA greatly improves instance segmentation in out-of-distribution scenes. We evaluate Slot-TTA in several 3D and 2D scene instance segmentation benchmarks and show substantial out-of-distribution performance improvements against state-of-the-art supervised feed-forward detectors and self-supervised test-time adaptation methods."
     />
     <meta name="twitter:image" content="images/Fig1.png" />
 
@@ -76,7 +48,7 @@ feed-forward detectors and unsupervised object discovery methods."
     <div class="container" id="main">
         <div class="row">
             <h2 class="col-md-12 text-center">
-                <b>Generating Fast and Slow</b>:  <br> Scene Decomposition via Reconstruction</br>
+                <b>Test-time adaptation with slot-centric models</b>
                 <small>
                 </small>
             </h2>
@@ -99,10 +71,45 @@ feed-forward detectors and unsupervised object discovery methods."
                     <!-- <br> -->
                     <li>
                         <a href="https://www.cs.cmu.edu/~dpathak/">
+                          Sujoy Paul
+                        </a>
+                        </br>Google
+                    </li>
+                    <li>
+                        <a href="https://www.cs.cmu.edu/~dpathak/">
+                           Sjoerd van Steenkiste
+                        </a>
+                        </br>Google
+                    </li>
+                    <br>
+                    <li>
+                        <a href="https://www.cs.cmu.edu/~dpathak/">
+                          Mehdi S. M. Sajjadi
+                        </a>
+                        </br>Google
+                    </li>
+
+                    <li>
+                        <a href="https://www.cs.cmu.edu/~dpathak/">
+                          Gaurav Aggarwal
+                        </a>
+                        </br>Google
+                    </li>
+
+                    <li>
+                        <a href="https://www.cs.cmu.edu/~dpathak/">
+                          Thomas Kipf
+                        </a>
+                        </br>Google
+                    </li>
+
+                    <li>
+                        <a href="https://www.cs.cmu.edu/~dpathak/">
                           Deepak Pathak
                         </a>
                         </br>CMU
                     </li>
+
                     <li>
                         <a href="https://www.cs.cmu.edu/~katef/">
                           Katerina Fragkiadaki
@@ -123,12 +130,12 @@ feed-forward detectors and unsupervised object discovery methods."
                                 <h4><strong>Paper</strong></h4>
                         </a>
                     </li>
-                    <li>
+<!--                     <li>
                         <a href="https://www.youtube.com/watch?v=6LdBdg8IWug">
                             <image src="images/youtube_icon.png" height="60px">
                                 <h4><strong>Video</strong></h4>
                         </a>
-                    </li>
+                    </li> -->
                     <!-- <li>
                             <a href="TODO">
                             <image src="img/github.png" height="60px">
@@ -149,7 +156,7 @@ feed-forward detectors and unsupervised object discovery methods."
             </div>
             <div class="col-md-8 col-md-offset-2">
                 <p class="text-center">
-                    <b>Slow Inference in GFS-Nets</b>: In the above video we show the iterations in training over the reconstruction objective for a single test example.
+                    <b>Slow Inference in Slot-TTA</b>: In the above video we show the iterations in training over the reconstruction objective for a single test example.
                 </p>
             </div>
         </div>
@@ -161,28 +168,14 @@ feed-forward detectors and unsupervised object discovery methods."
                     Abstract
                 </h3>
                 <p class="text-justify">
-                    We consider the problem of segmenting scenes into constituent entities, i.e. underlying objects and their parts. Current supervised visual detectors though impressive
-					within their training distribution, often fail to segment out-of-distribution scenes
-					into their constituent entities. Recent slot-centric generative models break such
-					dependence on supervision, by attempting to segment scenes into entities unsupervised, by reconstructing pixels. However, they have been restricted thus far to toy
-					scenes as they suffer from a reconstruction-segmentation trade-off: as the entity
-					bottleneck gets wider, reconstruction improves but then the segmentation collapses.
-					We propose GFS-Nets (Generating Fast and Slow Networks) that alleviate this issue
-					with two ingredients: i) curriculum training in the form of primitives, often missing
-					from current generative models and, ii) test-time adaptation per scene through gradient descent on the reconstruction objective, what we call slow inference, missing
-					from current feed-forward detectors. We show the proposed curriculum suffices
-					to break the reconstruction-segmentation trade-off, and slow inference greatly
-					improves segmentation in out-of-distribution scenes. We evaluate GFS-Nets in 3D
-					and 2D scene segmentation benchmarks of PartNet, CLEVR, Room Diverse++,
-					and show large (∼ 50%) performance improvements against SOTA supervised
-					feed-forward detectors and unsupervised object discovery methods.
+Current supervised visual detectors, though impressive within their training distribution, often fail to segment out-of-distribution scenes into their constituent entities. Recent test-time adaptation methods use auxiliary self-supervised losses to adapt the network parameters to each test example independently and have shown promising results towards generalization outside the training distribution for the task of image classification. In our work, we find evidence that these losses can be insufficient for instance segmentation tasks, without also considering architectural inductive biases. For image segmentation, recent slot-centric generative models break such dependence on supervision by attempting to segment scenes into entities in a self-supervised manner by reconstructing pixels. Drawing upon these two lines of work, we propose Slot-TTA, a semi-supervised instance segmentation model equipped with a slot-centric inductive bias, that is adapted per scene at test time through gradient descent on reconstruction or novel view synthesis objectives. We show that test-time adaptation in Slot-TTA greatly improves instance segmentation in out-of-distribution scenes. We evaluate Slot-TTA in several 3D and 2D scene instance segmentation benchmarks and show substantial out-of-distribution performance improvements against state-of-the-art supervised feed-forward detectors and self-supervised test-time adaptation methods.
                 </p>
             </div>
         </div>
 
 
 
-        <div class="row">
+<!--         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
                     Video
@@ -193,7 +186,7 @@ feed-forward detectors and unsupervised object discovery methods."
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
         <div class="row">
@@ -203,22 +196,20 @@ feed-forward detectors and unsupervised object discovery methods."
                 </h3>
                 <div class="form-group col-md-10 col-md-offset-1">
                     <textarea id="bibtex" class="form-control" readonly>
-@article{prabhudesai2022gfs,
-title={Generating Fast and Slow: Scene Decomposition via Reconstruction},
-author={Prabhudesai, Mihir and Goyal, Anirudh and Pathak, Deepak and Fragkiadaki
-, Katerina},
+@inproceedings{prabhudesai2022test,
+title={Test-time adaptation with slot-centric models},
+author={Prabhudesai, Mihir and Goyal, Anirudh and Paul, Sujoy and van Steenkiste, Sjoerd and Sajjadi, Mehdi SM  , Gaurav and Kipf, Thomas, and Pathak, Deepak and Fragkiadaki, Katerina and Aggarwal},
 journal={arXiv preprint arXiv:2203.11194},
 year={2022}
-}</textarea>
+}                        
+</textarea>
                 </div>
             </div>
         </div>
 <!-- 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Acknowledgements
-                </h3>
+                Test-time adaptation with slot-centric models>
                 <p class="text-justify">
                     Thanks to Ricardo Martin-Brualla and David Salesin for their comments on the text, and to George Drettakis and Georgios Kopanas for graciously assisting us with our baseline evaluation.
                     <br> The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a>.
