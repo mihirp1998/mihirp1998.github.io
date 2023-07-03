@@ -1,0 +1,19 @@
+/* .dp{
+    
+} */
+
+/* @media screen and (min-width: 800px) {
+    .dp {
+       width: 20%
+    }
+  } */
+  @media screen and (min-width: 1000px) {
+    .dp {
+       width: 20%
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    .dp {
+       width: 50%
+    }
+  }
