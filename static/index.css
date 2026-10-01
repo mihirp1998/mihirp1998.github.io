@@ -1,6 +1,6 @@
 /* Profile layout: option A, with all profile links on one line. */
 .section { padding: 32px; }
-.section > .container { width: 100%; max-width: 776px !important; }
+.section > .container { width: 100%; max-width: 960px !important; }
 .profile {
     color: #292929;
     font-family: Arial, Helvetica, sans-serif;
