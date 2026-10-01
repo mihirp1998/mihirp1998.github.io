@@ -1,19 +1,28 @@
-/* .dp{
-    
-} */
-
-/* @media screen and (min-width: 800px) {
-    .dp {
-       width: 20%
-    }
-  } */
-  @media screen and (min-width: 1000px) {
-    .dp {
-       width: 20%
-    }
-  }
-  @media screen and (max-width: 1000px) {
-    .dp {
-       width: 50%
-    }
-  }
+/* Profile layout: option A, with all profile links on one line. */
+.section { padding: 32px; }
+.section > .container { width: 100%; max-width: 776px !important; }
+.profile {
+    color: #292929;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: 36px;
+}
+.profile h1 { text-align: center; font-size: 36px; font-weight: 500; letter-spacing: -0.7px; line-height: 1.2; margin: 0 0 30px; }
+.profile-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 36px; align-items: start; }
+.profile-photo img { display: block; width: 100%; border-radius: 12px; }
+.profile a { color: #1772d0; text-decoration: none; }
+.profile a:hover { text-decoration: underline; }
+.profile-links { display: flex; flex-wrap: nowrap; justify-content: center; gap: 7px; white-space: nowrap; font-size: 13px; line-height: 1.8; margin-top: 14px; }
+.profile-links span { color: #aaa; }
+.profile .bio { font-size: 16px; line-height: 1.6; }
+.profile .bio p { margin: 0; }
+.profile .bio p + p { margin-top: 20px; }
+.profile + .content { border-top: 1px solid #e4e4e4; padding-top: 24px; }
+@media (max-width: 600px) {
+    .section { padding: 26px 22px; }
+    .profile h1 { font-size: 29px; text-align: left; margin-bottom: 22px; }
+    .profile-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .profile-identity { width: 220px; max-width: 100%; }
+    .profile-photo img { width: 140px; }
+    .profile-links { justify-content: flex-start; }
+}
