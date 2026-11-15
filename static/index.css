@@ -1,6 +1,6 @@
 /* Profile layout: option A, with all profile links on one line. */
 .section { padding: 32px; }
-.section > .container { width: 100%; max-width: 960px !important; }
+.section > .container { width: 100%; max-width: 1120px !important; }
 .profile {
     color: #292929;
     font-family: Arial, Helvetica, sans-serif;
@@ -25,4 +25,32 @@
     .profile-identity { width: 220px; max-width: 100%; }
     .profile-photo img { width: 140px; }
     .profile-links { justify-content: flex-start; }
+}
+
+/* Keep publication rows compact and aligned at desktop and tablet widths. */
+.content > ul.project-list { list-style: none; margin: 0; }
+.project-list > li { margin: 0 0 20px; padding: 16px; }
+.project-list > li > .pt-3 { padding-top: 0 !important; }
+.project-list .columns {
+    display: grid;
+    grid-template-columns: minmax(180px, 28%) minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+    margin: 0;
+}
+.project-list .column { width: auto; min-width: 0; padding: 0; }
+.project-list .paper-image-placeholder { height: auto; }
+.project-list .paper-image-placeholder img,
+.project-list .paper-image-placeholder video {
+    display: block;
+    max-width: 100%;
+    max-height: 170px !important;
+    object-fit: contain;
+}
+@media (max-width: 600px) {
+    .project-list .columns { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .project-list > li { padding: 14px; }
+    .project-list .paper-image-placeholder { justify-content: flex-start; }
+    .project-list .paper-image-placeholder img,
+    .project-list .paper-image-placeholder video { max-width: 280px; width: 100%; }
 }
